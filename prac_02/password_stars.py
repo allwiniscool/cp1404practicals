@@ -1,7 +1,12 @@
 MINIMUM_LENGTH_FOR_PASSWORD = 5
 def main():
-    password_to_stars = len(get_password()) * "*"
-    print(password_to_stars)
+    password = get_password()
+    convert_password_to_star(password)
+
+
+def convert_password_to_star(password):
+    stars = len(password) * "*"
+    print(stars)
 
 
 def get_password():
