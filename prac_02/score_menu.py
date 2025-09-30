@@ -21,7 +21,7 @@ def main():
             print("invalid choice")
         print(MENU)
         choice = input(">>> ").upper()
-    print("farwell")
+    print("farewell")
 
 def get_valid_score(low, high, text):
     """Get valid score."""
@@ -34,12 +34,12 @@ def get_valid_score(low, high, text):
 def determine_result(score):
     """Determine grade based on score."""
     if score < 0 or score > 100:
-        return ("Invalid score")
+        return "Invalid score"
     elif score >= 90:
-        return ("Excellent")
+        return "Excellent"
     elif score >= 50:
-        return ("Passable")
+        return "Passable"
     else:
-        return ("Bad")
+        return "Bad"
 
 main()
