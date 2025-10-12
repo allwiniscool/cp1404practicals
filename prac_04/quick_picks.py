@@ -2,7 +2,7 @@ import random
 
 number_of_quick_picks = int(input("How many quick picks? "))
 
-for i in range(number_of_quick_picks):
+for i in range(1, number_of_quick_picks + 1):
     numbers = []
     while len(numbers) < 6:
         number = random.randint(1, 45)
