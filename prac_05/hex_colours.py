@@ -2,6 +2,7 @@
 COLOUR_TO_CODE = {"AliceBlue": "#f0f8ff", "Amaranth": "#e52b50", "Amber": "#ffbf00", "Amethyst": "#9966cc",
                   "AntiqueWhite": "#faebd7", "Aquamarine1": "#7fffd4", "Asparagus": "#87a96b", "Barn Red": "#7c0a02",
                   "Bleu de France": "#318ce7", "Bright Green": "#66ff00"}
+
 colour_name = input("Enter colour name: ").lower()
 
 
