@@ -3,6 +3,7 @@ Word Occurrences
 Estimate: 20 minutes
 Actual: 30 minutes
 """
+
 word_count = {}
 text = input("Text: ").split()
 for word in text:
