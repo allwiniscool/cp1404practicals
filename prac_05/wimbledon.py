@@ -6,6 +6,7 @@ Estimated time: 30 minutes
 Actual time: 78 minutes
 """
 
+
 FILENAME = "wimbledon.csv"
 def main():
     records = load_records()
