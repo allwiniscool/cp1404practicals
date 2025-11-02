@@ -1,5 +1,10 @@
-"""expected 15min
-actual : 10 min"""
+"""
+guitar.py
+Estimate: 15 minutes
+Actual:   10 minutes
+"""
+
+
 class Guitar:
     def __init__(self, name='',year=0, cost=0):
         self.name = name

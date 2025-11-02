@@ -1,6 +1,8 @@
-"""expected: 10
-actual: 16"""
-
+"""
+guitars.py
+Estimate: 10 minutes
+Actual:   16 minutes
+"""
 from prac_06.guitar import Guitar
 
 print("My guitars!")

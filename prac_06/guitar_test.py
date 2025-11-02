@@ -1,5 +1,9 @@
-"""expected 5min
-actual 8min"""
+"""
+guitar_test.py
+Estimate: 5 minutes
+Actual:   8 minutes
+"""
+
 
 from prac_06.guitar import Guitar
 
