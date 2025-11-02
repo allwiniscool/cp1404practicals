@@ -4,6 +4,7 @@ Estimate: 15 minutes
 Actual:   10 minutes
 """
 
+
 class Guitar:
     """Represent a Guitar object."""
     def __init__(self, name='',year=0, cost=0):

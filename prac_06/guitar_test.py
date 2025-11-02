@@ -3,7 +3,6 @@ guitar_test.py
 Estimate: 5 minutes
 Actual:   8 minutes
 """
-
 from prac_06.guitar import Guitar
 
 guitar1 = Guitar( "Gibson L-5 CES",year=1922, cost=16035.40)
