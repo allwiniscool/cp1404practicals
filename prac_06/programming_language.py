@@ -1,6 +1,7 @@
 
 class ProgrammingLanguage:
     """Represents a ProgrammingLanguage object."""
+
     def __init__(self, name = "", typing = '', reflection = False, year = 0):
         self.name = name
         self.typing = typing
