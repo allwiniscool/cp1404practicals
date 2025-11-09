@@ -22,6 +22,23 @@ def main():
         elif choice == "L":
             filename = input("Filename: ")
             load_file(filename, projects)
+        elif choice == "U":
+            update_project(projects)
+        elif choice == "A":
+            add_project(projects)
+        elif choice == "F":
+            filter_projects_by_date(projects)
+        elif choice == "S":
+            filename = input("filename to save projects: ")
+            save_project(projects)
+            save_project(projects)
+        choice = input(MENU).upper()
+        save_choice = input("Would you like to save to projects.txt?").upper()
+        if save_choice[1] == "Y":
+            save_project(projects, "projects.txt")
+        else:
+            print("Thank you for using custom-built project management software.")
+
 
 def load_file(filename,projects):
     """Load a file into a list called projects."""
@@ -80,9 +97,46 @@ def filter_projects_by_date(projects):
         if date <= project.start_date:
             print(project)
 
+def update_project(projects):
+    """Update the completion_percentage and priority of a project inside projects."""
+    n = 0
+    for project in projects:
+        print(n, project)
+        n+=1
+    choice = get_valid_project_number(projects)
+    new_percentage = get_valid_input_value(prompt = "New percentage: ", min_value = 0, max_value = 100)
+    if new_percentage == "":
+        projects[choice].completion_percentage = projects[choice].completion_percentage
+    else:
+        projects[choice].completion_percentage = new_percentage
+    new_priority = get_valid_input_value(prompt="New priority: ",min_value = 1, max_value = 10)
+    if new_priority == "":
+        projects[choice].priority = projects[choice].priority
+    else:
+        projects[choice].priority = new_priority
+    print(projects[choice])
+
+def save_project(projects, filename = ""):
+    """Save a list of projects to a file."""
+    out_file = open(filename,"w")
+    out_file.write((f"Name\tstart_date\tpriority\tcost_estimate\tcompletion_percentage\n"))
+    for project in projects:
+        out_file.write((f"{project.name}\t{project.start_date.strftime("%d/%m/%Y")}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n"))
+    out_file.close()
 
 
 # error checkers
+def get_valid_project_number(projects):
+    """Get a valid project number for update_project function."""
+    while True:
+        try:
+            choice = int(input("Project choice: "))
+            if 0 <= choice < len(projects):
+                return choice
+            else:
+                print("Invalid choice, out of range.")
+        except ValueError:
+            print("Invalid input, enter a number.")
 
 def get_valid_input_value(prompt = "", min_value = 0, max_value = 100):
     """Get a valid input value from user."""
