@@ -53,3 +53,70 @@ def display_projects(projects):
         if project.completion_percentage == 100:
             print(project)
 
+def add_project(projects):
+    """Add a project to the list of projects."""
+    name = input("Name: ")
+    start_date = get_valid_date(prompt = "Start date (d/m/yyyy): ")
+    priority = get_valid_input_value(prompt="Priority: ",min_value = 1, max_value = 10)
+    while priority == "":
+        print("Invalid input, enter a number.")
+        priority = get_valid_input_value(prompt="Priority: ", min_value=1, max_value=10)
+    cost_estimate = get_valid_cost()
+    completion_percentage = get_valid_input_value(prompt = "Completion percentage: ", min_value = 0, max_value = 100)
+    while completion_percentage == "":
+        print("Invalid input, enter a number.")
+        completion_percentage = get_valid_input_value(prompt = "Completion percentage: ", min_value = 0, max_value = 100)
+    projects.append(Project(name,start_date,priority,cost_estimate,completion_percentage))
+    print(projects[-1])
+
+
+
+def filter_projects_by_date(projects):
+    """Filter a list of projects by date."""
+    date = get_valid_date(prompt = "Show projects that start after date (dd/mm/yy): ")
+    print(f"That day is/was {date.strftime('%A')}")
+    print(date.strftime("%d/%m/%Y"))
+    for project in projects:
+        if date <= project.start_date:
+            print(project)
+
+
+
+# error checkers
+
+def get_valid_input_value(prompt = "", min_value = 0, max_value = 100):
+    """Get a valid input value from user."""
+    while True:
+        choice = input(prompt)
+        if choice == "":
+            return choice
+        elif choice.isdigit():
+            int_choice = int(choice)
+            if int_choice > max_value or int_choice < min_value:
+                print("Invalid choice")
+            else:
+                return int_choice
+        else:
+            print("Invalid input, enter a number.")
+
+
+def get_valid_cost():
+    """Get a valid value for cost from user."""
+    cost = ""
+    while cost == "":
+        try:
+            cost = float(input("Cost: "))
+        except ValueError:
+            print("Invalid input, enter a number.")
+    return cost
+
+
+def get_valid_date(prompt = ""):
+    """Get a valid date from user."""
+    while True:
+        try:
+            date_string = input(prompt)
+            date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+            return date
+        except ValueError:
+            print("doesn't match formatting(dd/mm/yyyy).")
