@@ -104,6 +104,9 @@ def update_project(projects):
         print(n, project)
         n+=1
     choice = get_valid_project_number(projects)
+    while choice == "":
+        print("invalid choice")
+        choice = get_valid_project_number(projects)
     new_percentage = get_valid_input_value(prompt = "New percentage: ", min_value = 0, max_value = 100)
     if new_percentage == "":
         projects[choice].completion_percentage = projects[choice].completion_percentage
@@ -128,7 +131,8 @@ def save_project(projects, filename = ""):
 # error checkers
 def get_valid_project_number(projects):
     """Get a valid project number for update_project function."""
-    while True:
+    choice = ""
+    while choice == "":
         try:
             choice = int(input("Project choice: "))
             if 0 <= choice < len(projects):
@@ -140,6 +144,7 @@ def get_valid_project_number(projects):
 
 def get_valid_input_value(prompt = "", min_value = 0, max_value = 100):
     """Get a valid input value from user."""
+    choice = ""
     while True:
         choice = input(prompt)
         if choice == "":
@@ -167,10 +172,13 @@ def get_valid_cost():
 
 def get_valid_date(prompt = ""):
     """Get a valid date from user."""
-    while True:
+    date = ""
+    while date == "":
         try:
             date_string = input(prompt)
             date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
             return date
         except ValueError:
             print("doesn't match formatting(dd/mm/yyyy).")
+
+main()
