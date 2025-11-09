@@ -40,7 +40,6 @@ def load_file(filename,projects):
 
 
 
-
 # display project
 def display_projects(projects):
     """Display a list of projects."""
