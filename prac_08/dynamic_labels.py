@@ -18,7 +18,7 @@ class DynamicWidgetsLabel(App):
 
     def build(self):
         """ Build the Kivy app from the kv file """
-        self.title = " convert miles to km "
+        self.title = " Names As Labels "
         self.root = Builder.load_file("dynamic_labels.kv")
         self.create_labels()
         return self.root
